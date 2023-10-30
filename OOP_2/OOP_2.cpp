@@ -28,8 +28,7 @@ void Append(I_Managable** mass, int& size)
 	{
 	case 1:
 		cout << "Введите нужный текст: ";
-		//cin.ignore(10);
-		//cin.clear();
+
 		cin.getline(text, 100);
 		mass[size] = new Text(text);
 		break;
@@ -209,22 +208,36 @@ void Print_Pikes(I_Managable** mass, int size)
 	}
 }
 
-void Make_Copy()
+void Make_Copy(I_Managable** mass, int size, I_Managable ** new_mass)
 {
 }
 
-void Join()
+void Join(I_Managable** mass, int size, I_Managable** second_mass, int second_size)
 {
 }
 
 void Print_Unique(I_Managable** mass, int size)
 {
+	int c = 0;
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+			if (i != j and mass[i]->Value() == mass[j]->Value())
+				c++;
+		if (c == 0)
+		{
+			mass[i]->Print_Full();
+			cout << endl;
+		}
+		else
+			c = 0;
+	}
 }
 
 int main()
 {
 	system("chcp 1251 > null");
-	I_Managable* mass[MASS_SIZE] = { nullptr };
+	I_Managable* mass[MASS_SIZE] = { nullptr }, *new_mass[MASS_SIZE] = {nullptr};
 	int count = 0, key;
 	bool flag = true;
 	while (flag)
@@ -268,6 +281,9 @@ int main()
 			break;
 		case 10:
 			Print_Pikes(mass, count);
+			break;
+		case 13:
+			Print_Unique(mass, count);
 			break;
 		case 14:
 			for (int i = 0; i < 30; i++)
