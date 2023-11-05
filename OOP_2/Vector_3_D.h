@@ -9,7 +9,7 @@ public:
 	Vector_3_D(int x1, int y1, int z1, int x2, int y2, int z2);
 	void Print_Short();
 	void Print_Full();
-	void Copy(I_Copyable* object);
+	I_Managable* Copy();
 	bool is_Equal(I_Managable* object);
 	float Value();
 };

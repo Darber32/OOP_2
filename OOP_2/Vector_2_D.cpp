@@ -23,18 +23,15 @@ void Vector_2_D::Print_Full()
 	cout << "(" << x1 << ", " << y1 << "), (" << x2<< ", " << y2 << ")";
 }
 
-void Vector_2_D::Copy(I_Copyable* object)
+I_Managable* Vector_2_D::Copy()
 {
-	Vector_2_D* new_object = (Vector_2_D*)object;
-	new_object->x1 = x1;
-	new_object->x2 = x2;
-	new_object->y1 = y1;
-	new_object->y2 = y2;
+	Vector_2_D* new_object = new Vector_2_D(x1, y1, x2, y2);
+	return new_object;
 }
 
 bool Vector_2_D::is_Equal(I_Managable* object)
 {
-	return Value() == object->Value();
+	return Value() < object->Value();
 }
 
 float Vector_2_D::Value()

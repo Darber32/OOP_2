@@ -10,7 +10,7 @@ public:
 	Complex(int real, int imaginary);
 	void Print_Short();
 	void Print_Full();
-	void Copy(I_Copyable* object);
+	I_Managable* Copy();
 	bool is_Equal(I_Managable* object);
 	float Value();
 };

@@ -4,6 +4,6 @@ class I_Managable;
 class I_Copyable
 {
 public:
-	virtual void Copy(I_Copyable * object) = 0;
+	virtual I_Managable * Copy() = 0;
 	virtual bool is_Equal(I_Managable * object) = 0;
 };

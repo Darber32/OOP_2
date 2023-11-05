@@ -25,15 +25,18 @@ void Text::Print_Full()
 	cout << text;
 }
 
-void Text::Copy(I_Copyable* object)
+//переделать
+I_Managable* Text::Copy()
 {
-	Text* new_text = (Text*)object;
-	strcpy(new_text->text, text);
+	Text* new_text = new Text(text);
+	return new_text;
 }
 
+//переделать
 bool Text::is_Equal(I_Managable * object)
 {
-	return Value() == object->Value();
+	Text* second_text = (Text*)object;
+	return strcmp(text, second_text->text) > 0;
 }
 
 float Text::Value()

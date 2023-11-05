@@ -17,23 +17,23 @@ void Complex::Print_Short()
 	cout << real << " " << sign << " " << imaginary << "i";
 }
 
+
 void Complex::Print_Full()
 {
 	char sign;
 	imaginary < 0 ? sign = '-' : sign = '+';
-	cout << real << " " << sign << " " << imaginary << "i";
+	cout << real << " " << sign << " " << imaginary << "i, " << Value();
 }
 
-void Complex::Copy(I_Copyable* object)
+I_Managable* Complex::Copy()
 {
-	Complex* new_object = (Complex*)object;
-	new_object->real = real;
-	new_object->imaginary = imaginary;
+	Complex* new_object = new Complex(real, imaginary);
+	return new_object;
 }
 
 bool Complex::is_Equal(I_Managable* object)
 {
-	return Value() == object->Value();
+	return Value() < object->Value();
 }
 
 float Complex::Value()
